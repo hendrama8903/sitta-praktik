@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a2540" />
+  <title>Dashboard | SITTA - Universitas Terbuka</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-dashboard">
+  <div class="app-shell">
+
+    <!-- ===== Navbar (desktop & tablet) ===== -->
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <div class="nav-left">
+          <a href="dashboard.html" class="nav-brand">
+            <span class="brand-mark"><img src="assets/logo-ut.png" alt="Logo UT" /></span>
+            <span>SITTA</span>
+          </a>
+          <ul class="nav-menu">
+            <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+            <li><a href="stok.html" class="nav-link">Informasi Bahan Ajar</a></li>
+            <li><a href="tracking.html" class="nav-link">Tracking Pengiriman</a></li>
+            <li class="dropdown" id="dropdownLaporan">
+              <button class="nav-link" id="btnLaporan">Laporan ▾</button>
+              <div class="dropdown-menu">
+                <a href="#"><span>📈</span> Monitoring Progress DO Bahan Ajar</a>
+                <a href="#"><span>📋</span> Rekap Bahan Ajar</a>
+              </div>
+            </li>
+            <li><a href="#" class="nav-link">Histori Transaksi</a></li>
+          </ul>
+        </div>
+        <div class="nav-right">
+          <div class="nav-user">
+            <div class="nav-avatar" id="navAvatar">A</div>
+            <div class="nav-user-meta">
+              <span class="nav-user-name" id="userName">Pengguna</span>
+              <span class="nav-user-role" id="userRole">Role · Lokasi</span>
+            </div>
+          </div>
+          <button class="btn-logout" id="btnLogout">Keluar</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== Mobile Top Bar ===== -->
+    <header class="mobile-topbar">
+      <a href="dashboard.html" class="mobile-brand">
+        <span class="brand-mark"><img src="assets/logo-ut.png" alt="Logo UT" /></span>
+        <span>SITTA</span>
+      </a>
+      <button class="mobile-avatar-btn" id="mobileAvatarBtn" aria-label="Profil pengguna">
+        <span class="nav-avatar" id="navAvatarMobile">A</span>
+      </button>
+    </header>
+
+    <!-- ===== Main Content (compact) ===== -->
+    <main class="main-content dashboard-compact">
+
+      <!-- Hero compact: greeting + jam -->
+      <section class="hero-compact">
+        <div class="hero-info">
+          <span class="greeting-pill" id="greeting">Selamat Datang</span>
+          <h1>Halo, <span id="userNameHero">Pengguna</span> <span class="wave">👋</span></h1>
+          <p class="hero-sub">Kelola pemesanan, distribusi, dan pelaporan bahan ajar UT.</p>
+        </div>
+        <div class="hero-clock" id="jamSekarang">Memuat waktu...</div>
+      </section>
+
+      <!-- Stat cards: kompak 4 kolom -->
+      <section class="stat-row" aria-label="Ringkasan data">
+        <article class="stat-mini">
+          <div class="stat-mini-icon blue">📦</div>
+          <div class="stat-mini-body">
+            <div class="stat-mini-label">Total Stok</div>
+            <div class="stat-mini-value" id="totalStok">0</div>
+          </div>
+        </article>
+        <article class="stat-mini">
+          <div class="stat-mini-icon gold">📚</div>
+          <div class="stat-mini-body">
+            <div class="stat-mini-label">Jumlah Judul</div>
+            <div class="stat-mini-value" id="totalJudul">0</div>
+          </div>
+        </article>
+        <article class="stat-mini">
+          <div class="stat-mini-icon green">🚚</div>
+          <div class="stat-mini-body">
+            <div class="stat-mini-label">DO Aktif</div>
+            <div class="stat-mini-value" id="totalDO">0</div>
+          </div>
+        </article>
+        <article class="stat-mini">
+          <div class="stat-mini-icon purple">🏢</div>
+          <div class="stat-mini-body">
+            <div class="stat-mini-label">UT-Daerah</div>
+            <div class="stat-mini-value">42</div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Menu utama: 5 kolom -->
+      <section class="menu-section" aria-label="Menu utama">
+        <div class="section-head">
+          <h2 class="section-title">Menu Utama</h2>
+          <span class="section-sub">Akses cepat fitur SITTA</span>
+        </div>
+        <div class="menu-row">
+          <a href="stok.html" class="menu-tile">
+            <div class="menu-tile-icon blue">📚</div>
+            <div class="menu-tile-title">Informasi Bahan Ajar</div>
+            <div class="menu-tile-desc">Kelola stok bahan ajar UT-Daerah</div>
+          </a>
+          <a href="tracking.html" class="menu-tile">
+            <div class="menu-tile-icon gold">🚚</div>
+            <div class="menu-tile-title">Tracking Pengiriman</div>
+            <div class="menu-tile-desc">Pantau status Delivery Order</div>
+          </a>
+          <a href="#" class="menu-tile">
+            <div class="menu-tile-icon green">📊</div>
+            <div class="menu-tile-title">Monitoring Progress</div>
+            <div class="menu-tile-desc">Performa pengiriman per UT-Daerah</div>
+          </a>
+          <a href="#" class="menu-tile">
+            <div class="menu-tile-icon purple">📋</div>
+            <div class="menu-tile-title">Rekap Bahan Ajar</div>
+            <div class="menu-tile-desc">Laporan tiras dan transaksi</div>
+          </a>
+          <a href="#" class="menu-tile">
+            <div class="menu-tile-icon teal">🧾</div>
+            <div class="menu-tile-title">Histori Transaksi</div>
+            <div class="menu-tile-desc">Riwayat pemesanan dengan filter</div>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer-compact">
+      © 2026 <strong>SITTA</strong> Universitas Terbuka · Tugas Praktik 1 - Pemrograman Web (STSI4209)
+    </footer>
+
+    <!-- ===== Bottom Navigation (mobile) ===== -->
+    <nav class="bottom-nav" aria-label="Navigasi bawah">
+      <a href="dashboard.html" class="bottom-nav-item active">
+        <span class="bn-ikon">🏠</span>
+        <span class="bn-label">Beranda</span>
+      </a>
+      <a href="stok.html" class="bottom-nav-item">
+        <span class="bn-ikon">📚</span>
+        <span class="bn-label">Bahan Ajar</span>
+      </a>
+      <a href="tracking.html" class="bottom-nav-item">
+        <span class="bn-ikon">🚚</span>
+        <span class="bn-label">Tracking</span>
+      </a>
+      <a href="#" class="bottom-nav-item">
+        <span class="bn-ikon">📊</span>
+        <span class="bn-label">Laporan</span>
+      </a>
+      <button type="button" class="bottom-nav-item" id="bottomNavAccount">
+        <span class="bn-ikon">👤</span>
+        <span class="bn-label">Akun</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- Mobile profile sheet -->
+  <div class="mobile-sheet" id="mobileSheet" role="dialog" aria-modal="true">
+    <div class="mobile-sheet-content">
+      <div class="sheet-handle"></div>
+      <div class="sheet-user">
+        <div class="nav-avatar sheet-avatar" id="sheetAvatar">A</div>
+        <div>
+          <div class="sheet-name" id="sheetUserName">Pengguna</div>
+          <div class="sheet-role" id="sheetUserRole">Role · Lokasi</div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline btn-block" id="sheetCloseBtn">Tutup</button>
+      <button type="button" class="btn btn-danger btn-block" id="sheetLogoutBtn">Keluar dari SITTA</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
