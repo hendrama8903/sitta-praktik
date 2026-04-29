@@ -160,6 +160,9 @@ code { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.875
 }
 .login-card .subtitle { color: var(--text-muted); margin-bottom: 36px; }
 
+/* Branding mini di dalam form login — hanya tampil di mobile */
+.login-card-mobile-brand { display: none; }
+
 .form-group { margin-bottom: 20px; }
 .form-group label {
   display: block; font-size: 0.85rem; font-weight: 600;
@@ -1045,7 +1048,6 @@ body.page-dashboard .main-content {
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
-  margin-top: 10px;
   margin-bottom: 16px;
   background: white;
   padding: 14px;
@@ -1191,10 +1193,59 @@ body.page-dashboard .main-content {
    RESPONSIVE — MOBILE
    ========================================================= */
 @media (max-width: 900px) {
-  .login-page { grid-template-columns: 1fr; }
-  .login-left { padding: 40px 30px; min-height: auto; }
-  .hero-content h1 { font-size: 2rem; }
-  .hero-features { grid-template-columns: 1fr; }
+  /* Login: sembunyikan panel kiri, form full screen, no scroll */
+  .login-page {
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    background: var(--surface);
+  }
+  .login-left { display: none; }
+  .login-right {
+    padding: 24px 22px calc(24px + var(--safe-bottom));
+    min-height: 100vh;
+    align-items: center;
+  }
+  .login-card { max-width: 100%; }
+  /* Branding kompak di atas form */
+  .login-card-mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .login-card-mobile-brand .brand-mark {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(245, 184, 0, 0.2);
+  }
+  .login-card-mobile-brand .brand-text {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ut-blue-900);
+    letter-spacing: 0.02em;
+  }
+  .login-card-mobile-brand .brand-sub {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  /* Kompak: kurangi margin agar tidak perlu scroll */
+  .login-card h2 { font-size: 1.6rem; margin-bottom: 4px; }
+  .login-card .subtitle { margin-bottom: 22px; font-size: 0.9rem; }
+  .form-group { margin-bottom: 14px; }
+  .input-wrap input,
+  input[type="text"], input[type="email"], input[type="password"], input[type="number"], select {
+    padding: 12px 14px;
+  }
+  .input-wrap.with-ikon input { padding-left: 40px; }
+  .row-between { margin-bottom: 18px; }
+  .btn-lg { padding: 12px 24px; }
+  .divider-text { margin: 16px 0; }
+  .demo-info { margin-top: 18px; padding: 12px 14px; font-size: 0.78rem; }
 
   /* Sembunyikan navbar desktop, tampilkan mobile */
   .navbar { display: none; }
